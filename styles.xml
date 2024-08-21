@@ -1,0 +1,10 @@
+
+        <resources>
+            <style name="NormalTheme" parent="Theme.AppCompat.Light.NoActionBar">
+                <!-- Normal theme attributes -->
+            </style>
+            <style name="LaunchTheme" parent="Theme.AppCompat.Light.NoActionBar">
+                <item name="android:windowBackground">@android:color/white</item>
+            </style>
+        </resources>
+    
