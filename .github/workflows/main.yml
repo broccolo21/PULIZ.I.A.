@@ -1,0 +1,635 @@
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(PuliziAApp());
+}
+
+class PuliziAApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'PulizI.A.',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text(
+          'PulizI.A.',
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.blueAccent,
+        elevation: 0,
+        centerTitle: true,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(height: 20),
+            Image.network(
+              'https://www.example.com/innovative-cleaning.jpg',  // Sostituisci con l'URL di un'immagine di esempio
+              height: 200,
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Benvenuti in PulizI.A.',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.blueAccent,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                'L\'ambito del servizio di pulizia professionale è cambiato '
+                'grazie all\'intelligenza artificiale. Scopri come PulizI.A. '
+                'può rivoluzionare il modo in cui gestisci la tua impresa di pulizie.',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 18, color: Colors.white70),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => RegistrationPage(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.blueAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: Text(
+                'Inizia Ora',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 40),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SubscriptionPage(),
+                  ),
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.greenAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+              child: Text(
+                'Abbonamenti SaaS',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(height: 40),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class RegistrationPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Registrazione'),
+        backgroundColor: Colors.blueAccent,
+        elevation: 0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => OperatorRegistrationPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.person, size: 30),
+              label: Text(
+                'Registrazione Operatori',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.greenAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => CustomerRegistrationPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.people, size: 30),
+              label: Text(
+                'Registrazione Clienti',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.orangeAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => SchedulePage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.calendar_today, size: 30),
+              label: Text(
+                'Calendario Operatori',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.purpleAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => BodycamPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.videocam, size: 30),
+              label: Text(
+                'Bodycam',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.redAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
+            ElevatedButton.icon(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => GeoTrackerPage(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.map, size: 30),
+              label: Text(
+                'Geotracker',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+                backgroundColor: Colors.tealAccent,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SubscriptionPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Abbonamenti SaaS'),
+        backgroundColor: Colors.greenAccent,
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SubscriptionCard(
+              title: 'Pacchetto Base',
+              price: '€25/mese',
+              description: 'Fino a 3 operatori per ditta',
+              color: Colors.blueAccent,
+            ),
+            SizedBox(height: 20),
+            SubscriptionCard(
+              title: 'Pacchetto Avanzato',
+              price: '€50/mese',
+              description: 'Fino a 10 operatori per ditta',
+              color: Colors.orangeAccent,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SubscriptionCard extends StatelessWidget {
+  final String title;
+  final String price;
+  final String description;
+  final Color color;
+
+  SubscriptionCard({
+    required this.title,
+    required this.price,
+    required this.description,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: color,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: <Widget>[
+            Text(
+              title,
+              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            SizedBox(height: 10),
+            Text(
+              price,
+              style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.white),
+            ),
+            SizedBox(height: 10),
+            Text(
+              description,
+              style: TextStyle(fontSize: 18, color: Colors.white70),
+              textAlign: TextAlign.center,
+            ),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Logica per abbonarsi
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.white,
+                foregroundColor: color, // Invece di primary, usare foregroundColor
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ),
+              child: Text(
+                'Abbonati',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class OperatorRegistrationPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Registrazione Operatori'),
+        backgroundColor: Colors.greenAccent,
+        elevation: 0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            OperatorOptionButton(
+              icon: Icons.download,
+              label: 'Scarica la tua busta paga',
+              color: Colors.blueAccent,
+            ),
+            SizedBox(height: 20),
+            OperatorOptionButton(
+              icon: Icons.time_to_leave,
+              label: 'Chiedi permesso',
+              color: Colors.orangeAccent,
+            ),
+            SizedBox(height: 20),
+            OperatorOptionButton(
+              icon: Icons.beach_access,
+              label: 'Richiesta ferie',
+              color: Colors.purpleAccent,
+            ),
+            SizedBox(height: 20),
+            OperatorOptionButton(
+              icon: Icons.message,
+              label: 'Altre richieste',
+              color: Colors.redAccent,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class OperatorOptionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+
+  OperatorOptionButton({
+    required this.icon,
+    required this.label,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        // Logica per l'opzione selezionata
+      },
+      icon: Icon(icon, size: 30),
+      label: Text(
+        label,
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+        backgroundColor: color,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    );
+  }
+}
+
+class CustomerRegistrationPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Registrazione Clienti'),
+        backgroundColor: Colors.orangeAccent,
+        elevation: 0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            CustomerOptionButton(
+              icon: Icons.download,
+              label: 'Scarica fattura',
+              color: Colors.blueAccent,
+            ),
+            SizedBox(height: 20),
+            CustomerOptionButton(
+              icon: Icons.add_circle,
+              label: 'Richiedi ticket extra',
+              color: Colors.orangeAccent,
+            ),
+            SizedBox(height: 20),
+            CustomerOptionButton(
+              icon: Icons.feedback,
+              label: 'Lascia un feedback',
+              color: Colors.purpleAccent,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CustomerOptionButton extends StatelessWidget {
+  final IconData icon;
+  final String label;
+  final Color color;
+
+  CustomerOptionButton({
+    required this.icon,
+    required this.label,
+    required this.color,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        // Logica per l'opzione selezionata
+      },
+      icon: Icon(icon, size: 30),
+      label: Text(
+        label,
+        style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
+      style: ElevatedButton.styleFrom(
+        padding: EdgeInsets.symmetric(horizontal: 40, vertical: 15),
+        backgroundColor: color,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20),
+        ),
+      ),
+    );
+  }
+}
+
+class SchedulePage extends StatelessWidget {
+  final Map<String, List<String>> schedule = {
+    "Lunedì": [
+      "Cardano: Via Punzi 93 - Via De Gasperi 140",
+      "H23 Verone - Moles 89"
+    ],
+    "Martedì": ["Nessuna assegnazione"],
+    "Mercoledì": [
+      "Cardano: Via Roma 12 - Via Garibaldi 56",
+      "Verone - Largo Moles 8"
+    ],
+    "Giovedì": ["Nessuna assegnazione"],
+    "Venerdì": [
+      "Cardano: Via Punzi 93 - Via De Gasperi 140",
+      "H23 Verone - Moles 89"
+    ],
+  };
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Calendario Operatori'),
+        backgroundColor: Colors.purpleAccent,
+        elevation: 0,
+      ),
+      body: ListView.builder(
+        itemCount: schedule.length,
+        itemBuilder: (context, index) {
+          String day = schedule.keys.elementAt(index);
+          return ExpansionTile(
+            title: Text(
+              day,
+              style: TextStyle(fontSize: 22, color: Colors.white),
+            ),
+            children: schedule[day]!
+                .map((task) => ListTile(
+                      title: Text(
+                        task,
+                        style: TextStyle(fontSize: 18, color: Colors.white70),
+                      ),
+                    ))
+                .toList(),
+          );
+        },
+      ),
+    );
+  }
+}
+
+class BodycamPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Bodycam'),
+        backgroundColor: Colors.redAccent,
+        elevation: 0,
+      ),
+      body: Center(
+        child: Icon(
+          Icons.videocam,
+          size: 100,
+          color: Colors.white70,
+        ),
+      ),
+    );
+  }
+}
+
+class GeoTrackerPage extends StatelessWidget {
+  final List<Map<String, dynamic>> locations = [
+    {
+      "location": "Via Punzi 93",
+      "status": "completed",
+      "lat": 40.712776,
+      "lng": -74.005974,
+    },
+    {
+      "location": "Via De Gasperi 140",
+      "status": "incomplete",
+      "lat": 40.712776,
+      "lng": -74.005974,
+    },
+    {
+      "location": "H23 Verone",
+      "status": "completed",
+      "lat": 40.712776,
+      "lng": -74.005974,
+    },
+    {
+      "location": "Moles 89",
+      "status": "incomplete",
+      "lat": 40.712776,
+      "lng": -74.005974,
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey.shade900,
+      appBar: AppBar(
+        title: Text('Geotracker'),
+        backgroundColor: Colors.tealAccent,
+        elevation: 0,
+      ),
+      body: ListView.builder(
+        itemCount: locations.length,
+        itemBuilder: (context, index) {
+          final location = locations[index];
+          return ListTile(
+            leading: Icon(
+              location['status'] == 'completed'
+                  ? Icons.check_circle
+                  : Icons.radio_button_unchecked,
+              color: location['status'] == 'completed'
+                  ? Colors.greenAccent
+                  : Colors.white70,
+            ),
+            title: Text(
+              location['location'],
+              style: TextStyle(fontSize: 18, color: Colors.white70),
+            ),
+            trailing: Icon(
+              Icons.map,
+              color: Colors.white70,
+            ),
+            onTap: () {
+              // Qui puoi aggiungere la logica per la geolocalizzazione e il tracciamento.
+            },
+          );
+        },
+      ),
+    );
+  }
+}
